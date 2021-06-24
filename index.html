@@ -3,13 +3,32 @@
 <head>
     <meta charset="utf-8">
     <script>
-        const option = [ 'Rock','Paper','Scissor']
+        const option = [ 'rock','paper','scissor'];
+        let playerSelection;
+        let computerSelection = computerPlay();
 
-        function computerPlay {
+        function playRound() {
+            if (playerSelection === computerSelection) 
+                return 'You draw'
+                else if 
+            (playerSelection == 'rock' && computerSelection == 'paper'
+            || playerSelection == 'paper' && computerSelection == 'scissor'
+            || playerSelection == 'scissor' && computerSelection == 'rock') 
+              return 'You lose'
+              else
+            (playerSelection == 'rock' && computerSelection == 'scissor' 
+            || playerSelection == 'paper' && computerSelection == 'rock'
+            || playerSelection == 'scissor' && computerSelection == 'paper')
+                return 'You win'
+        }
+
+        function computerPlay() {
             return option[Math.floor(Math.random() * option.length)]
         };
 
-        console.log(computerPlay);
+        playerSelection = 'rock';
+        console.log(computerSelection)
+        console.log(playRound());
     </script>
 </head>
 </html>
