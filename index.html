@@ -3,32 +3,57 @@
 <head>
     <meta charset="utf-8">
     <script>
-        const option = [ 'rock','paper','scissor'];
-        let playerSelection;
-        let computerSelection = computerPlay();
-
         function playRound() {
+            function computerPlay() {
+                const option = [ 'rock','paper','scissor'];
+                return option[Math.floor(Math.random() * option.length)]
+            };
+            
+            let computerSelection = computerPlay();
+            let playerSelection = prompt('Choose your weapon');
+        
             if (playerSelection === computerSelection) 
-                return 'You draw'
+                return 'draw'
                 else if 
             (playerSelection == 'rock' && computerSelection == 'paper'
             || playerSelection == 'paper' && computerSelection == 'scissor'
             || playerSelection == 'scissor' && computerSelection == 'rock') 
-              return 'You lose'
+              return 'loss'
               else
             (playerSelection == 'rock' && computerSelection == 'scissor' 
             || playerSelection == 'paper' && computerSelection == 'rock'
             || playerSelection == 'scissor' && computerSelection == 'paper')
-                return 'You win'
+                return 'win'
         }
 
-        function computerPlay() {
-            return option[Math.floor(Math.random() * option.length)]
-        };
+        function game() {
+                
+                let playerScore = 0;
+                let compScore = 0;
 
-        playerSelection = 'rock';
-        console.log(computerSelection)
-        console.log(playRound());
+            for (i=0; i<5; i++) {
+                let result = playRound();
+                console.log(`Your score: ${playerScore}`);
+                console.log(`Computer score: ${compScore}`);
+
+                if (result == 'win') {
+                    playerScore++;
+                    console.log('You won!');
+                }
+                else if (result == 'loss') {
+                    compScore++;
+                    console.log('You lost :(');
+                }
+                else console.log('A draw, how boring')
+            }
+            
+            if (playerScore > compScore) return 'This match is yours'
+            else if (compScore > playerScore) return 'You lost this match'
+            else if (playerScore == compScore) return 'Rematch!'
+
+        }
+
+        console.log(game());
     </script>
 </head>
 </html>
