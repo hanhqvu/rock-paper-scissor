@@ -2,23 +2,32 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/stylesheet.css">
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-    <header>Man? Machine? Who will prevail?<br>
-            First to 5 points is the winner!
+    <header>
+        <h1 id="title">Rock Paper Scissor</h1>
     </header>
     <main>
-        <div id="playerChoice">
-            <button class="choice" data-choice="rock">Rock</button>
-            <button class="choice" data-choice="paper">Paper</button>
-            <button class="choice" data-choice="rock">Scissor</button>
-            <button id="reset">Reset</button>
+        <div class="main" id="instruction">
+            Man? Machine? Who will prevail?<br>
+            First to 5 points is the winner!<br>
         </div>
-        <div id="result"></div>
-        <div id="score"></div>
-        <div id="finalResult"></div>
+        <div class="main" id="playerChoice">
+            <button class="choice" data-choice="rock"><img src="icons/rock.png"></button>
+            <button class="choice" data-choice="paper"><img src="icons/paper.png"></button>
+            <button class="choice" data-choice="scissor"><img src="icons/scissors.png"></button> 
+        </div>
+        <div class="main" ><button id="reset">Reset</button></div>
+        <div class="main" id="result">Begin by choosing your weapon</div>
+        <div class="main" id="score">
+            <p>Round: <span id="roundCount">0</span></p>
+            <p>Man: <span id="playerScore">0</span></p>
+            <p>Machine: <span id="compScore">0</span></p>
+        </div>
+        <div class="main" id="finalResult"></div>
     </main>
+    <footer><div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div></footer>       
     <script src="script.js"></script>
 </body>
 </html>
