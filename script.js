@@ -1,5 +1,6 @@
 let playerScore = 0;
 let compScore = 0;
+let roundCount = 0;
 
 const refreshPage = () => {
     location.reload();
@@ -22,28 +23,33 @@ function playRound() {
         return;
     }
 
+    // Pass user choice from the button
     playerSelection = this.getAttribute('data-choice');
     compSelection = computerPlay();
+
     let result = document.querySelector('#result');
-    let showScore = document.querySelector('#score');
+    let showPlayerScore = document.querySelector('#playerScore');
+    let showCompScore = document.querySelector('#compScore');
     
     if (playerSelection == 'rock' && compSelection == 'paper'
             || playerSelection == 'paper' && compSelection == 'scissor'
-            || playerSelection == 'scissor' && compSelection == 'rock') {    
-               compScore++;
+            || playerSelection == 'scissor' && compSelection == 'rock') {
+               compScore++; 
                result.textContent = 'You lost this round!';
-               showScore.textContent =  `The score is now: Man ${playerScore} to Machine ${compScore}`; }
+               showCompScore.textContent = compScore; }
     else if (playerSelection == 'rock' && compSelection == 'scissor' 
             || playerSelection == 'paper' && compSelection == 'rock'
             || playerSelection == 'scissor' && compSelection == 'paper') {
                 playerScore++;
                 result.textContent = 'You won this round!';
-                showScore.textContent =  `The score is now: Man ${playerScore} to Machine ${compScore}`; }
-    else { 
-        result.textContent = 'It\'s a draw';
-        showScore.textContent =  `The score is now: Man ${playerScore} to Machine ${compScore}` }
+                showPlayerScore.textContent =  playerScore; }
+    else result.textContent = 'It\'s a draw';
     
     let finalResult = document.querySelector('#finalResult');
     if (playerScore == 5) finalResult.textContent = 'The winner is you!';
     else if (compScore == 5) finalResult.textContent = 'You are the loser';
+
+    roundCount++;
+    let showRoundCount = document.querySelector('#roundCount');
+    showRoundCount.textContent = roundCount;
 }
