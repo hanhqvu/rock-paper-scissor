@@ -8,10 +8,12 @@ const refreshPage = () => {
 
 document.querySelector('#reset').addEventListener('click', refreshPage);
 
+//Call fuction when user click on any choice
 document.querySelectorAll('.choice').forEach(
     choice => choice.addEventListener('click', playRound)
 );
 
+//Randomize computer choice
 function computerPlay() {
     const option = [ 'rock','paper','scissor'];
     return option[Math.floor(Math.random() * option.length)]
